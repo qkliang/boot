@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shrbank.rmp.dao.LmtCompInfoDao">
+
+    <resultMap type="com.shrbank.rmp.entity.LmtCompInfo" id="LmtCompInfoMap">
+        <result property="lmtCompNo" column="lmt_comp_no" jdbcType="VARCHAR"/>
+        <result property="cusId" column="cus_id" jdbcType="VARCHAR"/>
+        <result property="certCode" column="cert_code" jdbcType="VARCHAR"/>
+        <result property="certType" column="cert_type" jdbcType="VARCHAR"/>
+        <result property="cusName" column="cus_name" jdbcType="VARCHAR"/>
+        <result property="crdContNo" column="crd_cont_no" jdbcType="VARCHAR"/>
+        <result property="crdType" column="crd_type" jdbcType="VARCHAR"/>
+        <result property="amt" column="amt" jdbcType="OTHER"/>
+        <result property="inputDate" column="input_date" jdbcType="OTHER"/>
+        <result property="inputTime" column="input_time" jdbcType="TIMESTAMP"/>
+        <result property="lastUpdateDate" column="last_update_date" jdbcType="OTHER"/>
+        <result property="lastUpdateTime" column="last_update_time" jdbcType="TIMESTAMP"/>
+        <result property="inputId" column="input_id" jdbcType="VARCHAR"/>
+        <result property="inputBrId" column="input_br_id" jdbcType="VARCHAR"/>
+        <result property="lmtStatus" column="lmt_status" jdbcType="VARCHAR"/>
+        <result property="field1" column="field1" jdbcType="VARCHAR"/>
+        <result property="field2" column="field2" jdbcType="VARCHAR"/>
+        <result property="field3" column="field3" jdbcType="VARCHAR"/>
+        <result property="field4" column="field4" jdbcType="VARCHAR"/>
+        <result property="field5" column="field5" jdbcType="VARCHAR"/>
+        <result property="field6" column="field6" jdbcType="VARCHAR"/>
+        <result property="field7" column="field7" jdbcType="VARCHAR"/>
+        <result property="field8" column="field8" jdbcType="VARCHAR"/>
+        <result property="field9" column="field9" jdbcType="VARCHAR"/>
+        <result property="field10" column="field10" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="LmtCompInfoMap">
+        select lmt_comp_no,
+               cus_id,
+               cert_code,
+               cert_type,
+               cus_name,
+               crd_cont_no,
+               crd_type,
+               amt,
+               input_date,
+               input_time,
+               last_update_date,
+               last_update_time,
+               input_id,
+               input_br_id,
+               lmt_status,
+               field1,
+               field2,
+               field3,
+               field4,
+               field5,
+               field6,
+               field7,
+               field8,
+               field9,
+               field10
+        from rmp.lmt_comp_info
+        where lmt_comp_no = #{lmtCompNo}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="LmtCompInfoMap">
+        select lmt_comp_no,
+               cus_id,
+               cert_code,
+               cert_type,
+               cus_name,
+               crd_cont_no,
+               crd_type,
+               amt,
+               input_date,
+               input_time,
+               last_update_date,
+               last_update_time,
+               input_id,
+               input_br_id,
+               lmt_status,
+               field1,
+               field2,
+               field3,
+               field4,
+               field5,
+               field6,
+               field7,
+               field8,
+               field9,
+               field10
+        from rmp.lmt_comp_info limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="LmtCompInfoMap">
+        select
+        lmt_comp_no, cus_id, cert_code, cert_type, cus_name, crd_cont_no, crd_type, amt, input_date, input_time,
+        last_update_date, last_update_time, input_id, input_br_id, lmt_status, field1, field2, field3, field4, field5,
+        field6, field7, field8, field9, field10
+        from rmp.lmt_comp_info
+        <where>
+            <if test="lmtCompNo != null and lmtCompNo != ''">
+                and lmt_comp_no = #{lmtCompNo}
+            </if>
+            <if test="cusId != null and cusId != ''">
+                and cus_id = #{cusId}
+            </if>
+            <if test="certCode != null and certCode != ''">
+                and cert_code = #{certCode}
+            </if>
+            <if test="certType != null and certType != ''">
+                and cert_type = #{certType}
+            </if>
+            <if test="cusName != null and cusName != ''">
+                and cus_name = #{cusName}
+            </if>
+            <if test="crdContNo != null and crdContNo != ''">
+                and crd_cont_no = #{crdContNo}
+            </if>
+            <if test="crdType != null and crdType != ''">
+                and crd_type = #{crdType}
+            </if>
+            <if test="amt != null">
+                and amt = #{amt}
+            </if>
+            <if test="inputDate != null">
+                and input_date = #{inputDate}
+            </if>
+            <if test="inputTime != null">
+                and input_time = #{inputTime}
+            </if>
+            <if test="lastUpdateDate != null">
+                and last_update_date = #{lastUpdateDate}
+            </if>
+            <if test="lastUpdateTime != null">
+                and last_update_time = #{lastUpdateTime}
+            </if>
+            <if test="inputId != null and inputId != ''">
+                and input_id = #{inputId}
+            </if>
+            <if test="inputBrId != null and inputBrId != ''">
+                and input_br_id = #{inputBrId}
+            </if>
+            <if test="lmtStatus != null and lmtStatus != ''">
+                and lmt_status = #{lmtStatus}
+            </if>
+            <if test="field1 != null and field1 != ''">
+                and field1 = #{field1}
+            </if>
+            <if test="field2 != null and field2 != ''">
+                and field2 = #{field2}
+            </if>
+            <if test="field3 != null and field3 != ''">
+                and field3 = #{field3}
+            </if>
+            <if test="field4 != null and field4 != ''">
+                and field4 = #{field4}
+            </if>
+            <if test="field5 != null and field5 != ''">
+                and field5 = #{field5}
+            </if>
+            <if test="field6 != null and field6 != ''">
+                and field6 = #{field6}
+            </if>
+            <if test="field7 != null and field7 != ''">
+                and field7 = #{field7}
+            </if>
+            <if test="field8 != null and field8 != ''">
+                and field8 = #{field8}
+            </if>
+            <if test="field9 != null and field9 != ''">
+                and field9 = #{field9}
+            </if>
+            <if test="field10 != null and field10 != ''">
+                and field10 = #{field10}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="lmtCompNo" useGeneratedKeys="true">
+        insert into rmp.lmt_comp_info(cus_id, cert_code, cert_type, cus_name, crd_cont_no, crd_type, amt, input_date,
+                                      input_time, last_update_date, last_update_time, input_id, input_br_id, lmt_status,
+                                      field1, field2, field3, field4, field5, field6, field7, field8, field9, field10)
+        values (#{cusId}, #{certCode}, #{certType}, #{cusName}, #{crdContNo}, #{crdType}, #{amt}, #{inputDate},
+                #{inputTime}, #{lastUpdateDate}, #{lastUpdateTime}, #{inputId}, #{inputBrId}, #{lmtStatus}, #{field1},
+                #{field2}, #{field3}, #{field4}, #{field5}, #{field6}, #{field7}, #{field8}, #{field9}, #{field10})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="lmtCompNo" useGeneratedKeys="true">
+        insert into rmp.lmt_comp_info(cus_id, cert_code, cert_type, cus_name, crd_cont_no, crd_type, amt, input_date,
+        input_time, last_update_date, last_update_time, input_id, input_br_id, lmt_status, field1, field2, field3,
+        field4, field5, field6, field7, field8, field9, field10)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.cusId}, #{entity.certCode}, #{entity.certType}, #{entity.cusName}, #{entity.crdContNo},
+            #{entity.crdType}, #{entity.amt}, #{entity.inputDate}, #{entity.inputTime}, #{entity.lastUpdateDate},
+            #{entity.lastUpdateTime}, #{entity.inputId}, #{entity.inputBrId}, #{entity.lmtStatus}, #{entity.field1},
+            #{entity.field2}, #{entity.field3}, #{entity.field4}, #{entity.field5}, #{entity.field6}, #{entity.field7},
+            #{entity.field8}, #{entity.field9}, #{entity.field10})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="lmtCompNo" useGeneratedKeys="true">
+        insert into rmp.lmt_comp_info(cus_id, cert_code, cert_type, cus_name, crd_cont_no, crd_type, amt, input_date,
+        input_time, last_update_date, last_update_time, input_id, input_br_id, lmt_status, field1, field2, field3,
+        field4, field5, field6, field7, field8, field9, field10)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.cusId}, #{entity.certCode}, #{entity.certType}, #{entity.cusName}, #{entity.crdContNo},
+            #{entity.crdType}, #{entity.amt}, #{entity.inputDate}, #{entity.inputTime}, #{entity.lastUpdateDate},
+            #{entity.lastUpdateTime}, #{entity.inputId}, #{entity.inputBrId}, #{entity.lmtStatus}, #{entity.field1},
+            #{entity.field2}, #{entity.field3}, #{entity.field4}, #{entity.field5}, #{entity.field6}, #{entity.field7},
+            #{entity.field8}, #{entity.field9}, #{entity.field10})
+        </foreach>
+        on duplicate key update
+        cus_id = values(cus_id) , cert_code = values(cert_code) , cert_type = values(cert_type) , cus_name =
+        values(cus_name) , crd_cont_no = values(crd_cont_no) , crd_type = values(crd_type) , amt = values(amt) ,
+        input_date = values(input_date) , input_time = values(input_time) , last_update_date = values(last_update_date)
+        , last_update_time = values(last_update_time) , input_id = values(input_id) , input_br_id = values(input_br_id)
+        , lmt_status = values(lmt_status) , field1 = values(field1) , field2 = values(field2) , field3 = values(field3)
+        , field4 = values(field4) , field5 = values(field5) , field6 = values(field6) , field7 = values(field7) , field8
+        = values(field8) , field9 = values(field9) , field10 = values(field10)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update rmp.lmt_comp_info
+        <set>
+            <if test="cusId != null and cusId != ''">
+                cus_id = #{cusId},
+            </if>
+            <if test="certCode != null and certCode != ''">
+                cert_code = #{certCode},
+            </if>
+            <if test="certType != null and certType != ''">
+                cert_type = #{certType},
+            </if>
+            <if test="cusName != null and cusName != ''">
+                cus_name = #{cusName},
+            </if>
+            <if test="crdContNo != null and crdContNo != ''">
+                crd_cont_no = #{crdContNo},
+            </if>
+            <if test="crdType != null and crdType != ''">
+                crd_type = #{crdType},
+            </if>
+            <if test="amt != null">
+                amt = #{amt},
+            </if>
+            <if test="inputDate != null">
+                input_date = #{inputDate},
+            </if>
+            <if test="inputTime != null">
+                input_time = #{inputTime},
+            </if>
+            <if test="lastUpdateDate != null">
+                last_update_date = #{lastUpdateDate},
+            </if>
+            <if test="lastUpdateTime != null">
+                last_update_time = #{lastUpdateTime},
+            </if>
+            <if test="inputId != null and inputId != ''">
+                input_id = #{inputId},
+            </if>
+            <if test="inputBrId != null and inputBrId != ''">
+                input_br_id = #{inputBrId},
+            </if>
+            <if test="lmtStatus != null and lmtStatus != ''">
+                lmt_status = #{lmtStatus},
+            </if>
+            <if test="field1 != null and field1 != ''">
+                field1 = #{field1},
+            </if>
+            <if test="field2 != null and field2 != ''">
+                field2 = #{field2},
+            </if>
+            <if test="field3 != null and field3 != ''">
+                field3 = #{field3},
+            </if>
+            <if test="field4 != null and field4 != ''">
+                field4 = #{field4},
+            </if>
+            <if test="field5 != null and field5 != ''">
+                field5 = #{field5},
+            </if>
+            <if test="field6 != null and field6 != ''">
+                field6 = #{field6},
+            </if>
+            <if test="field7 != null and field7 != ''">
+                field7 = #{field7},
+            </if>
+            <if test="field8 != null and field8 != ''">
+                field8 = #{field8},
+            </if>
+            <if test="field9 != null and field9 != ''">
+                field9 = #{field9},
+            </if>
+            <if test="field10 != null and field10 != ''">
+                field10 = #{field10},
+            </if>
+        </set>
+        where lmt_comp_no = #{lmtCompNo}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from rmp.lmt_comp_info
+        where lmt_comp_no = #{lmtCompNo}
+    </delete>
+
+</mapper>
