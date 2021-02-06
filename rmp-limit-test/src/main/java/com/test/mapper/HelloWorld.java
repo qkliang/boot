@@ -1,4 +1,4 @@
-package com.test.dao;
+package com.test.mapper;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
