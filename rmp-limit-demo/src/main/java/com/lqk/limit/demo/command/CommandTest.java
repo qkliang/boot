@@ -1,4 +1,4 @@
-package com.lqk.boot.demo.command;
+package com.lqk.limit.demo.command;
 
 import org.junit.Test;
 
@@ -36,6 +36,7 @@ public class CommandTest {
     @Test
     public void commandTest2() {
         ProcessArray pa = new ProcessArray();
+
         int[] array = {3, -4, 6, 4};
         pa.process(array, (int[] target) -> {
             int sum = 0;
