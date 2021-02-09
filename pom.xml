@@ -5,6 +5,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>rmp-limit-test</module>
+        <module>rmp-limit-demo</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -12,6 +13,7 @@
         <version>2.4.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.lqk</groupId>
     <artifactId>boot</artifactId>
     <version>0.0.1-SNAPSHOT</version>

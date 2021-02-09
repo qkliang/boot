@@ -1,4 +1,4 @@
-package com.lqk.boot.demo.lambda;
+package com.lqk.limit.demo.lambda;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.lqk.boot.demo.command;
+package com.lqk.limit.demo.command;
 
 /**
  * @author liangqiankun
