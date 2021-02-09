@@ -1,4 +1,4 @@
-package com.lqk.limit.demo.command;
+package com.limit.demo.command;
 
 import org.junit.Test;
 

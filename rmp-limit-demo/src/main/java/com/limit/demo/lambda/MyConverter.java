@@ -1,4 +1,4 @@
-package com.lqk.limit.demo.lambda;
+package com.limit.demo.lambda;
 
 /**
  * @author liangqiankun

@@ -1,4 +1,4 @@
-package com.lqk.limit;
+package com.limit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2021/2/9 5:12 下午
  */
 @SpringBootApplication
-public class BootApplication {
+public class LimitBootApplication {
     public static void main(String[] args) {
-        SpringApplication.run(BootApplication.class);
+        SpringApplication.run(LimitBootApplication.class);
     }
 }
