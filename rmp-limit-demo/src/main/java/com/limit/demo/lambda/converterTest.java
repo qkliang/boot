@@ -2,12 +2,26 @@ package com.limit.demo.lambda;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
+
 /**
  * @author liangqiankun
  * @date 2021/2/8 11:31 下午
  */
 
 public class converterTest {
+
+    @Test
+    public void test3(){
+
+        List<String> list = Arrays.asList(new String[]{"1","2"});
+        list.forEach(
+                s-> System.out.println(s)
+        );
+    }
+
 
     @Test
     public void test2(){
